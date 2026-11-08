@@ -2,6 +2,9 @@ subprojects {
     plugins.withId("com.android.base") {
         android {
             compileSdk = 37
+            // Google 已不再发布 platforms;android-37，只发布 37.0/37.1/37.2，
+            // 不指定 minor 时 AGP 会去找 android-37 而报 "Failed to find target"
+            compileSdkMinor = 0
             ndkVersion = "29.0.13113456"
             
             defaultConfig {
